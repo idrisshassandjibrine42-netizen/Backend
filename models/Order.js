@@ -63,16 +63,11 @@ const orderSchema = new mongoose.Schema(
     items: {
       type: [orderItemSchema],
       required: true,
-      validate: {
-        validator: (items) => items.length > 0,
-        message: "La commande doit contenir au moins un produit.",
-      },
     },
 
     totalPrice: {
       type: Number,
       required: true,
-      min: 0,
     },
 
     status: {
@@ -81,6 +76,7 @@ const orderSchema = new mongoose.Schema(
       default: "en_attente",
     },
   },
+
   {
     timestamps: true,
   },
