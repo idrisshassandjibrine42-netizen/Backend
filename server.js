@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import productRoutes from "./routes/productRoute.js";
 import userRoutes from "./routes/userRoute.js";
+import orderRoutes from "./routes/orderRoute.js";
 import connectDB from "./config/bd.js";
 import cors from "cors";
 import path from "path";
@@ -17,7 +18,7 @@ app.use(cors());
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
-
+app.use("/api/orders", orderRoutes);
 app.get("/", (req, res) => {
   res.send("Bienvenue sur le serveur Express !");
 });
